@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "florea"
+version = "0.6.0"
+description = "Studio d'art inspiré de la nature : photo / son / texte -> œuvre, poème, histoire (LangGraph, Pydantic, Graph-RAG, MCP)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy", "pydantic>=2", "pillow", "langchain-core>=0.3", "langgraph>=0.2"]
+
+[project.optional-dependencies]
+mcp = ["mcp"]
+search = ["sentence-transformers", "faiss-cpu"]
+gpu = ["torch", "transformers>=4.44,<5", "accelerate", "diffusers", "safetensors", "sentence-transformers", "faiss-cpu",
+       "gradio", "librosa", "soundfile", "pydub", "mcp", "nest_asyncio"]
+dev = ["pytest", "mcp"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

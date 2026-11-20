@@ -1,0 +1,8 @@
+# Tests et serveur MCP : aucun GPU, aucun téléchargement de modèle
+numpy
+pydantic>=2
+pillow
+langchain-core>=0.3
+langgraph>=0.2
+mcp
+pytest

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+.DS_Store
+# sorties du notebook
+florea_gallery/
+florea_gallery.zip
+hf_cache/

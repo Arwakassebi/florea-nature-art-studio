@@ -1,0 +1,18 @@
+# Exécution complète (GPU, ex. Google Colab T4). PyTorch est déjà installé sur Colab.
+transformers>=4.44,<5
+accelerate
+diffusers
+safetensors
+sentence-transformers
+faiss-cpu
+pydantic>=2
+langgraph
+langchain-core
+gradio
+librosa
+soundfile
+pydub
+mcp
+nest_asyncio
+pillow
+numpy
