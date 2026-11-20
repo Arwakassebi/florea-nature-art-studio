@@ -156,12 +156,3 @@ Le code de ce dépôt est sous licence **MIT**. Les modèles téléchargés au p
 | `sentence-transformers/all-MiniLM-L6-v2` | embeddings | Apache 2.0 |
 
 Les styles « à la manière de » sont de simples descriptions stylistiques pour un modèle de diffusion ; aucune œuvre d'artiste n'est reproduite ni utilisée comme donnée.
-
-## Ce que j'ai appris
-
-*(À adapter avec vos mots avant publication.)*
-
-- Un petit LLM n'est fiable que si le code l'entoure : schéma strict, relance, repli champ par champ.
-- Un agent doit avoir un garde-fou, et la trace doit dire quand il a été utilisé.
-- Écrire un GCN à la main et vérifier ses gradients par différences finies aide à comprendre ce que fait vraiment une librairie.
-- Séparer le code testable (sans GPU) du code GPU rend la CI possible.
