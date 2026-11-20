@@ -131,7 +131,7 @@ Pour Claude Desktop, dans `claude_desktop_config.json` :
 Outils exposés : `search_knowledge`, `generate_image_prompt`, `list_styles`, `recommend_styles`, `explain_links`.
 Sans `sentence-transformers`, la recherche utilise des embeddings hachés (lexicaux, moins précis) ; installez `sentence-transformers` et `faiss-cpu` pour la recherche sémantique.
 
-## Limites (volontairement explicites)
+## Limites 
 
 - **Petit LLM** : Qwen2.5-1.5B n'appelle pas toujours l'outil de recherche (d'où le garde-fou) et écrit des poèmes corrects mais pas remarquables. Le modèle 3B améliore l'écriture (`init(llm_name=...)`).
 - **GCN** : les nœuds n'ont pas d'attributs (`X = I`) ; sur ~250 nœuds, le modèle se comporte surtout comme une factorisation de matrice du graphe. Évaluation sur 31 liens de test seulement.
