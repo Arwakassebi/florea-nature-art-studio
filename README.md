@@ -1,7 +1,7 @@
 # 🌿 FLOREA — Nature Art Studio
 
-[![CI](https://github.com/ArwaKassebi/florea-nature-art-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/ArwaKassebi/florea-nature-art-studio/actions/workflows/ci.yml)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ArwaKassebi/florea-nature-art-studio/blob/main/notebooks/FLOREA_V6.ipynb)
+[![CI](https://github.com/ArwaKO/florea-nature-art-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/Arwak/florea-nature-art-studio/actions/workflows/ci.yml)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Arwak/florea-nature-art-studio/blob/main/notebooks/FLOREA_V6.ipynb)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -102,7 +102,7 @@ Cliquez sur le badge **Open in Colab**, choisissez *Exécution → Modifier le t
 ### 2. Lancer les tests en local (sans GPU)
 
 ```bash
-git clone https://github.com/ArwaKassebi/florea-nature-art-studio.git
+git clone https://github.com/VOTRE-PSEUDO/florea-nature-art-studio.git
 cd florea-nature-art-studio
 pip install -r requirements-dev.txt
 python -m pytest -q
@@ -131,7 +131,7 @@ Pour Claude Desktop, dans `claude_desktop_config.json` :
 Outils exposés : `search_knowledge`, `generate_image_prompt`, `list_styles`, `recommend_styles`, `explain_links`.
 Sans `sentence-transformers`, la recherche utilise des embeddings hachés (lexicaux, moins précis) ; installez `sentence-transformers` et `faiss-cpu` pour la recherche sémantique.
 
-## Limites 
+## Limites (volontairement explicites)
 
 - **Petit LLM** : Qwen2.5-1.5B n'appelle pas toujours l'outil de recherche (d'où le garde-fou) et écrit des poèmes corrects mais pas remarquables. Le modèle 3B améliore l'écriture (`init(llm_name=...)`).
 - **GCN** : les nœuds n'ont pas d'attributs (`X = I`) ; sur ~250 nœuds, le modèle se comporte surtout comme une factorisation de matrice du graphe. Évaluation sur 31 liens de test seulement.
@@ -156,3 +156,61 @@ Le code de ce dépôt est sous licence **MIT**. Les modèles téléchargés au p
 | `sentence-transformers/all-MiniLM-L6-v2` | embeddings | Apache 2.0 |
 
 Les styles « à la manière de » sont de simples descriptions stylistiques pour un modèle de diffusion ; aucune œuvre d'artiste n'est reproduite ni utilisée comme donnée.
+
+## Ce que j'ai appris
+
+*(À adapter avec vos mots avant publication.)*
+
+- Un petit LLM n'est fiable que si le code l'entoure : schéma strict, relance, repli champ par champ.
+- Un agent doit avoir un garde-fou, et la trace doit dire quand il a été utilisé.
+- Écrire un GCN à la main et vérifier ses gradients par différences finies aide à comprendre ce que fait vraiment une librairie.
+- Séparer le code testable (sans GPU) du code GPU rend la CI possible.
+## Démo en ligne — FLOREA Lite
+
+La version Lite fonctionne sur CPU et peut être hébergée sur une VM Azure B1s.
+
+Elle propose :
+- Analyse d'une scène naturelle.
+- Recherche dans la base de connaissances.
+- Graph-RAG avec chemins explicables.
+- Classement des styles artistiques par GCN.
+- Génération de prompts artistiques.
+
+Cette version ne génère pas directement les poèmes et les images, contrairement à la version complète qui nécessite un GPU.
+
+### Installation Lite
+
+```bash
+pip install -r requirements-lite.txt
+pip install -e . --no-deps
+python -m florea.lite
+
+```
+
+### Déploiement Azure
+
+Consultez le guide : [docs/DEPLOY.md](docs/DEPLOY.md).
+## Démo en ligne — FLOREA Lite
+
+FLOREA Lite est une version allégée du projet, conçue pour fonctionner sur CPU avec une faible consommation de mémoire et pouvant être déployée sur une VM Azure.
+
+### Fonctionnalités
+- Analyse de scènes naturelles.
+- Recherche dans la base de connaissances.
+- Graph-RAG avec chemins explicables.
+- Classement des styles artistiques par GCN.
+- Génération de prompts artistiques.
+
+Cette version ne réalise pas directement la génération des poèmes et des images, contrairement à la version complète.
+
+### Installation locale
+
+```bash
+pip install -r requirements-lite.txt
+pip install -e . --no-deps
+python -m florea.lite
+```
+
+### Déploiement Azure
+
+Consultez le guide : [docs/DEPLOY.md](docs/DEPLOY.md).

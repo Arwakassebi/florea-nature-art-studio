@@ -1,0 +1,7 @@
+.git
+.venv
+tests
+notebooks
+__pycache__
+*.egg-info
+florea_gallery

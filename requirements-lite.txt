@@ -1,0 +1,4 @@
+# Version Lite (CPU, 1 Go de RAM suffisent) : pas de PyTorch, pas de LangChain
+gradio
+numpy
+pydantic>=2
